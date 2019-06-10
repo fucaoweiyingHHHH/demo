@@ -9,5 +9,8 @@ public class IndexController {
     public String index(){
         return "/index";
     }
-
+    @RequestMapping("/addGithab")
+    public String addGithab(){
+        return "/index";
+    }
 }

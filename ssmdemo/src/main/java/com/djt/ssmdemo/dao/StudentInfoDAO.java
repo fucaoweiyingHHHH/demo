@@ -10,9 +10,14 @@ import java.util.List;
 @Repository
 public interface StudentInfoDAO {
     List<Student> findAll(int pageNow, int pageSize, @Param("name") String name);
+
     Student findById(Integer id);
+
     int insert(Student student);
+
     int update(Student student);
+
     int delete(Integer id);
+
     int findCount(@Param("name") String name);
 }
