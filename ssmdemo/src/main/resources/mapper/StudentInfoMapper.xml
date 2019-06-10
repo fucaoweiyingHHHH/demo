@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djt.ssmdemo.dao.StudentInfoDAO">
+    <resultMap id="studentMap" type="com.djt.ssmdemo.entity.Student">
+        <id column="stu_id" property="id"></id>
+        <result column="stu_name" property="name"></result>
+        <result column="stu_sex" property="sex"></result>
+        <result column="stu_birth" property="birth"></result>
+        <result column="stu_phone" property="phone"></result>
+    </resultMap>
+    
+    <sql id="studentColumns">
+        stu_id, stu_name, stu_sex, stu_birth, stu_phone
+    </sql>
+
+    <select id="findAll" resultMap="studentMap">
+      SELECT 
+      <include refid="studentColumns"></include>
+        FROM
+        studentinfo
+        <if test="name!=null and name != ''">
+           where  stu_name like CONCAT('%',#{name},'%')
+        </if>
+        limit #{pageNow},#{pageSize}
+    </select>
+    <select id="findCount" resultType="int">
+        SELECT
+        count(1)
+        FROM
+        studentinfo
+        <if test="name!=null and name != ''">
+            where  stu_name like CONCAT('%',#{name},'%')
+        </if>
+    </select>
+
+    <select id="findById" resultMap="studentMap">
+        SELECT
+        <include refid="studentColumns"></include>
+        FROM
+        studentinfo
+        WHERE stu_id = #{id}
+    </select>
+    
+    <insert id="insert"  >
+        INSERT INTO studentinfo(stu_name, stu_sex, stu_birth, stu_phone) VALUES
+        (#{name}, #{sex}, #{birth}, #{phone})
+    </insert>
+
+    <update id="update"  >
+      UPDATE studentinfo SET stu_name = #{name},
+      stu_sex = #{sex},
+      stu_birth = #{birth},
+      stu_phone = #{phone}
+      WHERE stu_id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM studentinfo WHERE stu_id = #{id}
+    </delete>
+</mapper>

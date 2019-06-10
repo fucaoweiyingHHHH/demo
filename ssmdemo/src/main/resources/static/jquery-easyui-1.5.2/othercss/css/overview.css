@@ -1,0 +1,38 @@
+@charset "utf-8";
+body{ float:left; width:100%; height:100%; margin:0;padding:0; overflow:hidden; font-family:"微软雅黑"; font-size:12px;background:#fff;}
+*{ padding:0; margin:0; list-style:none;}
+
+.view_title{width:100%;height:50px; line-height:50px; border:#ddeeff solid 1px; box-sizing:border-box;}
+.view_title h3{ float:left;width:100%; font-size:20px; color:#fff; background:#53adff; text-align:center;}
+.databtn{ float:right; margin:14px;}
+.databtn li{ float:left;  width:22px; height:22px; background:rgba(255,255,255,0.1); margin-left:4px; line-height:22px; /*border-radius:2px;*/ text-align:center; font-size:12px;}
+.databtn li:hover{ background:#1098f7; }
+.databtn .secletstyle{background:#fff;color:#53adff;}
+
+.table_size{float:left;width:50%; height:392px; border-left:#ddeeff solid 1px; border-top:#ddeeff solid 1px;box-sizing:border-box;}
+/*.easyui-datagrid{ float:left;}*/
+
+.lockbtn{ position:fixed; top:17px; left:53%;}
+.lockbtn a{ width:60px; height:20px; line-height:20px; background:#fff; display:block; color:#53adff; font-size:12px; /*border-radius:0 11px 11px 0;*/}
+
+.datagrid-header,
+.datagrid-td-rownumber {
+  background: #f4f7fa;
+}
+.datagrid-header .datagrid-cell span{
+	color:#188df7;
+}
+.datagrid-header td.datagrid-header-over {
+  background: #fff;
+}
+
+@media (max-width:1440px)and (max-height:900px){
+	.table_size{ height:310px;}
+}
+@media (max-width:1440px)and (max-height:900px){
+	.table_size{ height:245px;}
+}
+@media (max-width:1024px)and (max-height:768px){
+	.table_size{ height:248px;}
+	.lockbtn{left:55%;}
+}
