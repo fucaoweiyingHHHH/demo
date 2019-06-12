@@ -34,4 +34,13 @@ public class StudentInfoController {
     public R studentList(int page, int rows, String name){
         return  studentInfoService.findAll(page,rows,name);
     }
+
+    /**
+     * @auther djt
+     * @return
+     */
+    @RequestMapping("/echart")
+    public String echart(){
+        return "/student/echart";
+    }
 }
